@@ -1,5 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`All Pokemon List renders successfully 1`] = `ShallowWrapper {}`;
-
-exports[`App renders successfully 1`] = `ShallowWrapper {}`;

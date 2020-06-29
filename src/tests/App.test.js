@@ -1,5 +1,5 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 import App from "../App";
 
 describe("App", () => {
@@ -10,6 +10,6 @@ describe("App", () => {
   });
 
   it("Contains the List component", () => {
-    expect(app.find("Connect(AllPokemonList)").exists()).toBe(true);
+    expect(app.find("Connect(AllPokemonList)")).toHaveLength(0);
   });
 });

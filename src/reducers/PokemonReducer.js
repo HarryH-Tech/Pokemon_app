@@ -1,8 +1,10 @@
-import { GET_ALL_POKEMON, SEARCH_POKEMON } from "../actions/constants";
+import {
+  GET_ALL_POKEMON,
+  SEARCH_POKEMON,
+  GET_SINGLE_POKEMON,
+} from "../actions/constants";
 
 const PokemonReducer = (state = [], action) => {
-  console.log(action);
-
   switch (action.type) {
     case GET_ALL_POKEMON:
       return {
@@ -14,6 +16,12 @@ const PokemonReducer = (state = [], action) => {
       return {
         ...state,
         pokemon: action.pokemon,
+      };
+
+    case GET_SINGLE_POKEMON:
+      return {
+        ...state,
+        singlePokemon: action.singlePokemon,
       };
 
     default:

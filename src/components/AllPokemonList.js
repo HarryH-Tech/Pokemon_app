@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { getAllPokemonAction } from "../actions/AllPokemonList";
+import { getAllPokemonAction } from "../actions/index";
 
+import { Link } from "react-router-dom";
+import { Grid, Segment } from "semantic-ui-react";
+
+const container = {
+  width: "30%",
+  margin: "10px auto",
+  textAlign: "center",
+};
 export function AllPokemonList(props) {
-  console.log(props);
-
   const { allPokemon } = props;
 
   useEffect(() => {
@@ -13,20 +19,31 @@ export function AllPokemonList(props) {
 
   console.log(allPokemon);
 
+  const capitalize = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
+
   return (
     <div>
       <h2>POKEMON LIST</h2>
-      {allPokemon
-        ? allPokemon.map((pokemon) => {
-            return <p>{pokemon.name}</p>;
-          })
-        : ""}
+      <Grid>
+        {allPokemon
+          ? allPokemon.map((pokemon) => {
+              return (
+                <Segment style={container}>
+                  <Link to={`pokemon/${pokemon.name}`}>
+                    <h1>{capitalize(pokemon.name)}</h1>
+                  </Link>
+                </Segment>
+              );
+            })
+          : ""}
+      </Grid>
     </div>
   );
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     allPokemon: state.allPokemon,
   };

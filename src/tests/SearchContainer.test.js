@@ -9,7 +9,7 @@ describe("Search Container", () => {
     expect(searchContainer).toMatchSnapshot();
   });
 
-  //   it("Contains the List component", () => {
-  //     expect(app.find("Connect(AllPokemonList)").exists()).toBe(true);
-  //   });
+  it("displays the correct search heading text", () => {
+    expect(searchContainer.find("h2").text()).toEqual("Search Pokemon");
+  });
 });

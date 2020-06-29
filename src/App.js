@@ -1,15 +1,21 @@
 import React from "react";
 
 import AllPokemonList from "./components/AllPokemonList";
+import SinglePokemon from "./components/SinglePokemon";
 import SearchContainer from "./components/SearchContainer";
+
+import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom";
 
 function App(props) {
   return (
-    <div>
+    <Router>
+      {/* <AllPokemonList /> */}
+
       <SearchContainer />
-      HI
-      <AllPokemonList />
-    </div>
+      <Route exact path="/" component={AllPokemonList} />
+
+      <Route exact path="/pokemon/:name" component={SinglePokemon} />
+    </Router>
   );
 }
 
